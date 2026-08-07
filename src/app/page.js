@@ -263,27 +263,27 @@ export default function Home() {
 
           {/* Search Box */}
           <div className="animate-fade-in-up delay-2">
-            <div className="flex items-center gap-3 glass-card p-2 rounded-2xl focus-within:border-indigo-500/30 focus-within:shadow-[0_0_30px_rgba(99,102,241,0.1)] transition-all duration-300">
-              <div className="pl-4 text-zinc-500"><SearchIcon /></div>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 glass-card p-2 rounded-2xl focus-within:border-indigo-500/30 focus-within:shadow-[0_0_30px_rgba(99,102,241,0.1)] transition-all duration-300">
+              <div className="hidden sm:block pl-4 text-zinc-500"><SearchIcon /></div>
               <input
                 type="text"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Enter any URL (e.g., github.com)"
-                className="flex-1 bg-transparent text-white placeholder-zinc-500 outline-none text-lg py-3"
+                className="flex-1 bg-transparent text-white placeholder-zinc-500 outline-none text-base sm:text-lg px-4 sm:px-0 py-3 sm:py-3 w-full text-center sm:text-left"
                 id="url-input"
               />
               <button
                 onClick={analyzeWebsite}
                 disabled={loading}
-                className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold rounded-xl hover:shadow-[0_0_20px_rgba(99,102,241,0.3)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed flex items-center gap-2"
+                className="w-full sm:w-auto px-6 py-3 sm:py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold rounded-xl hover:shadow-[0_0_20px_rgba(99,102,241,0.3)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed flex justify-center items-center gap-2"
                 id="analyze-btn"
               >
-                {loading ? <><LoaderIcon /> <span>Analyzing...</span></> : <><SearchIcon /> <span>Analyze</span></>}
+                {loading ? <><LoaderIcon /> <span>Analyzing...</span></> : <><SearchIcon className="sm:hidden" /> <span>Analyze</span></>}
               </button>
             </div>
-            {!data && <p className="text-zinc-600 text-sm mt-3">Free | No signup | Open source | AI-powered</p>}
+            {!data && <p className="text-zinc-600 text-xs sm:text-sm mt-3">Free | No signup | Open source | AI-powered</p>}
           </div>
         </div>
       </section>
