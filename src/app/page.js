@@ -148,7 +148,7 @@ export default function Home() {
     setData(null);
     setAiAnalysis(null);
     try {
-      const res = await fetch(`http://${window.location.hostname}:8000/api/analyze`, {
+      const res = await fetch('/api/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url: url.trim() }),
@@ -161,7 +161,7 @@ export default function Home() {
         setTimeout(() => resultsRef.current?.scrollIntoView({ behavior: 'smooth' }), 100);
       }
     } catch (err) {
-      setError(`Failed to connect to the analysis server at ${window.location.hostname}:8000. Error: ${err.message}`);
+      setError(`Failed to connect to the analysis server. Error: ${err.message}`);
     } finally {
       setLoading(false);
     }
